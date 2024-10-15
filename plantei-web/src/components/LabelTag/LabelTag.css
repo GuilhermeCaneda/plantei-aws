@@ -1,0 +1,17 @@
+
+.labeltag-container{
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 7.39rem;
+    padding: 0.648rem 1.295rem 0.648rem 1.295rem;
+    border-radius: 1.943rem;
+    color: #8A9B6E;
+    border: 0.162rem solid #8A9B6E
+}

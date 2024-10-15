@@ -1,0 +1,137 @@
+.product-info{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2.4rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 70.1rem;
+    width: 100%;
+    min-height: 60rem;
+}
+.product-info > h2{
+    font-family: EB Garamond;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8.352rem;
+    text-align: left;
+    color: #354733;
+    margin-bottom: -0.8rem;
+}
+.product-info > h3{
+    font-family: Lato;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.88rem;
+    text-align: left;
+    color: #AFB2AA;
+}
+.product-tags{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.product-price{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.619rem;
+    align-items: flex-start;
+}
+
+.product-price > h4{
+    font-family: Lato;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.88rem;
+    text-align: left;
+    color: #000000;
+}
+
+
+
+.product-price > h4:nth-child(2){
+    font-family: Lato;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+    color: #AFB2AA;
+    text-decoration: line-through;
+}
+
+
+
+
+
+
+
+.product-info > button{
+    width: 19.1rem;
+    height: 6.2rem;
+    background-color: #354733;
+    box-shadow: 0.5rem 0.5rem 1.4rem 0px #35473333;
+    box-sizing: border-box;
+    border: 0.1rem;
+    
+
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: center;
+    color: #F8F9FB;
+
+    transition: .3s linear;
+}
+
+.product-info > button:hover{
+    transform: scale(0.95);
+}
+
+.product-info > h5{
+    font-family: Lato;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.88rem;
+    text-align: left;
+}
+.product-info > ul{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.product-info > ul > li{
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+    color: #000000;
+
+    margin-left: 1.8rem;
+}
+
+.product-info > p{
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+    color: #000000;
+    margin-top: -0.8rem;
+}
+
+
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .product-info{
+        max-width: auto;
+        width: 100%;
+        padding: 0 2rem;
+    }
+}

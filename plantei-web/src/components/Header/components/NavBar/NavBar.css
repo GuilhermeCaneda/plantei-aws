@@ -1,0 +1,33 @@
+.header-nav {
+  display: flex;
+  justify-content: center;
+  max-width: 38.3rem;
+  width: 100%;
+}
+
+
+.header-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #354733;
+    font-family: Raleway;
+    font-size: 1.6rem;
+    transition: color 0.3s ease
+  }
+
+  .header-nav a.active {
+    color: #8A9B6E/* Cor da fonte quando a rota estiver ativa */
+  }
+
+  .header-nav a:hover {
+    color: #158212/* Cor da fonte quando o mouse estiver em cima */
+  }

@@ -1,0 +1,30 @@
+.about-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-height: 50rem;
+    margin-bottom: 10rem;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+#title-time {
+    font-family: Lato;
+    font-size: 4.4rem;
+    color: #354733;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .about-container {
+        height: auto;
+    }
+
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .about-container {
+        height: auto;
+    }
+  }

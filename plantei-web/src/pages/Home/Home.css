@@ -1,0 +1,26 @@
+.home-container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 7.2rem;
+    overflow: hidden;
+}
+
+.home-container > h2{
+    font-family: EB Garamond;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8.352rem;
+    text-align: center;
+    color: #354733;
+}
+
+.home-container > h2 > span{
+    font-family: EB Garamond;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8.352rem;
+    text-align: center;
+    color: #8A9B6E;
+}

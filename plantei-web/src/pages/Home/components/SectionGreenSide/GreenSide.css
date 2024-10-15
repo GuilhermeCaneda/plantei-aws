@@ -1,0 +1,167 @@
+#green-side{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F0F1EE;
+}
+.greenside-wrap{
+    width: 100%;
+    height: 90.2rem;
+    max-width: 173.2rem;
+}
+.greenside-wrap2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+ 
+#left-side{
+    width: 86.6rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+ 
+#left-side-container{
+    width: 61.3rem;
+    height: 39.1rem;
+    margin: 24.6rem 10rem 0rem 12rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.4rem;
+}
+ 
+.love-nature-text{
+    display:flex;
+    flex-flow: row nowrap;
+    gap: 1.5rem;
+    height: 2.8rem;
+}
+ 
+.love-nature-text p{
+    color: #000;
+    text-align: center;
+    font-family: Pacifico;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+    height: 2.8rem;
+}
+ 
+.love-nature-text img{
+    width: 3.2rem;
+}
+ 
+#title {
+    font-family: "EB Garamond";
+    font-size: 6.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+ 
+    color: #354733;
+}
+ 
+#title span{
+    color:#8A9B6E;
+}
+ 
+#left-side-container p:nth-child(3){
+    text-align: left;
+    margin-top: 1.2rem;
+    margin-bottom: 2.4rem;
+    font-size: 1.6rem;
+}
+ 
+#right-side{
+    width: 86.6rem;
+    height: 100%;
+    filter: grayscale(100%);
+}
+ 
+#img-background{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+ 
+#left-plant-img{
+    margin-top: -3rem;
+    margin-left: -17%;
+    width:  46.0567rem;
+    height: 55.0142rem;    
+    transform: rotate(15.614deg);
+    filter: grayscale(100%);
+}
+ 
+#learn-gardening-text {
+    position: relative;
+    top: -23.5%;
+    left: 14.2%;
+}
+ 
+#learn-gardening-text a{
+    color: #808276;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.472rem;
+    cursor: pointer;
+}
+ 
+ 
+ 
+@media (min-width: 0px) and (max-width: 767px) {
+    .greenside-wrap2{
+        align-items: flex-start;
+        width: 100%;
+    }
+    .greenside-wrap{
+        width: 100%;
+        height: 90rem;
+        padding: 0% 5%;
+        overflow: hidden;
+    }
+ 
+    #left-side-container{
+        width: 100%;
+        margin: 0;
+        margin: 30% 5%;
+    }
+    #left-side{
+        width: 100%;
+        height: auto;
+    }
+   
+    #learn-gardening-text {
+        position: relative;
+        top: -57.5rem;
+        left: 5%;
+    }
+ 
+    #left-plant-img{
+        margin-top: -10%;
+        margin-left: -17%;
+    }
+    /*#left-plant-img{
+        display: none;
+        visibility:hidden;
+    }*/
+    #right-side{
+        display: none;
+        visibility: hidden;
+    }
+}
+ 
+ 
+@media (min-width: 2000px) {
+    .greenside-wrap{
+        overflow: hidden;
+    }
+}

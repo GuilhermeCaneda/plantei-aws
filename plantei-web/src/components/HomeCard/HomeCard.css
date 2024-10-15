@@ -1,0 +1,73 @@
+.homecard-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0.648rem 0.6rem 0px #29292914;
+    width: 38.9rem;
+    height: 56.018rem;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.homecard-container:hover{
+    transform: scale(0.95);
+}
+
+#img-homecard{
+    width: 38.9rem;
+    height: 38.8rem;
+    opacity: 0.09rem;
+}
+
+.homecard-info{
+    width: 38.9rem;
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 1.619rem;
+    padding-bottom: 3.238rem;
+    padding-left: 3.238rem;
+    padding-right: 3.238rem;
+    gap: 0.648rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    background-color: white;
+}
+
+
+.homecard-info > h4{
+    font-family: Lato;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.88rem;
+    text-align: left;
+    color: #354733;
+}
+
+.homecard-info > div{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.619rem;
+    align-items: flex-start;
+}
+
+.homecard-info > div > p:nth-child(1){
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+    color: #354733;
+    padding-bottom: 1.78rem;
+}
+
+
+.homecard-info > div > p:nth-child(2){
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.472rem;
+    text-align: left;
+    color: #AFB2AA;
+    text-decoration: line-through;
+}

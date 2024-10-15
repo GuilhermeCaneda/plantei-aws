@@ -1,0 +1,18 @@
+.button-container{
+    width: 19.1rem;
+    height: 6.0rem;
+    background-color: #354733;
+
+    color: #FCFCFC;
+    text-align: center;
+    
+    font-family: Raleway;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.472rem;
+}
+
+.button-container:hover{
+    background-color: #8A9B6E;
+}

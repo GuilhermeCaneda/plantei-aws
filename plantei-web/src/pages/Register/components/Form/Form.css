@@ -1,0 +1,268 @@
+::placeholder {
+  color: #afb2aa;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f0f1ee;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  max-width: 173.2rem;
+  width: 100%;
+}
+
+.error .plant-form-input, 
+.error .plant-form-textarea {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.message.success {
+  color: green;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.message.error {
+  color: red;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.plant-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 47.6rem; 
+  margin-top: 12.8rem;
+  margin-left: 9.8rem;
+  margin-right: auto; 
+  box-sizing: border-box; 
+}
+
+.custom-line {
+  border: none;
+  border-top: 0.1rem solid #d3d3d3;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1.8rem;
+  margin-top: 3rem;
+
+}
+
+.plant-form-title {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+  color: #354733;
+}
+
+#name {
+  font-size: 1.8rem;
+  margin-top: 3.6rem;
+}
+
+.plant-form-input {
+  border-radius: 0.4rem;
+  margin-top: 1.6rem;
+  height: 4.6rem;
+  border: 0.15rem solid #afb2aa;
+  width: 100%;
+  text-indent: 1.6rem;
+  background-color: transparent;
+}
+
+#subtitle {
+  margin-top: 2.4rem;
+  font-size: 1.8rem;
+}
+
+#type {
+  margin-top: 3.6rem;
+  font-size: 1.8rem;
+}
+
+
+.plant-form-row {
+  display: flex;
+  gap: 1.8rem;
+  margin-top: 3.6rem;
+  font-size: 1.8rem;
+  align-items: flex-start; 
+}
+
+.form-label {
+  margin-top: 3.6rem;
+}
+
+/* RADIO */
+.plant-form-radio-group {
+  margin-top: 1.6rem;
+}
+
+.plant-form-radio-group h2 {
+  font-size: 1.8rem;
+}
+
+.plant-form-radio-group input {
+  margin-top: 1.6rem;
+}
+
+.plant-form-radio-group label {
+  margin-right: 1.9rem;
+  cursor: pointer;
+  font-weight: normal;
+  color: #afb2aa;
+  font-size: 1.6rem;
+  margin-left: 0.35rem;
+
+}
+
+.plant-form-radio-group input[type="radio"]:checked + label {
+  color: #1e1e24;
+}
+
+#features {
+  margin-top: 3.6rem;
+  font-size: 1.8rem;
+}
+
+#features textarea {
+  margin-top: 1.6rem;
+  height: 12.5rem;
+  width: 100%;
+  resize: none;
+  border-radius: 0.4rem;
+  border: 0.15rem solid #afb2aa;
+  text-indent: 1.6rem;
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 4rem;
+}
+
+#description {
+  margin-top: 1.6rem;
+  font-size: 1.8rem;
+}
+
+#description textarea {
+  margin-top: 1.6rem;
+  height: 12.5rem;
+  width: 100%;
+  resize: none;
+  border-radius: 0.4rem;
+  border: 0.15rem solid #afb2aa;
+  text-indent: 1.6rem;
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 4rem;
+}
+
+.plant-form-button {
+  margin-top: 6.8rem;
+  width: 100%;
+  color: #fcfcfc;
+  height: 5.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: #354733;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.plant-form-button:hover {
+  background-color: #2fbd6a;
+  color: white;
+}
+
+.image-container {
+  background-image: url('/src/assets/register/plant-register.png');  
+  background-repeat: no-repeat;
+  background-position: right ;
+  width: 92.2rem;
+  height: 134.5rem;
+  filter: grayscale(100%) brightness(100%);
+  transition: 0.3s ease;
+  box-shadow: 0px 0.648rem 0.2rem 0.2rem #29292914;
+}
+
+.image-container:hover {
+  filter: grayscale(0%) brightness(100%);
+} 
+
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .plant-form {
+    width: 100%;
+    margin-left:4rem;
+  }
+
+  .plant-form-row {
+    flex-direction: column;
+  }
+
+  .image-container {
+    background-size: contain; 
+    height: 300px;
+  }
+
+ 
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .plant-form {
+    margin-left: 0; 
+    margin-right: 0;
+    width: 90%; 
+  }
+
+  .plant-form-title {
+    font-size: 3rem;
+  }
+
+  .plant-form-input,
+  #features textarea,
+  #description textarea {
+    font-size: 1.6rem;
+  }
+
+  .plant-form-button {
+    height: 4.6rem;
+    font-size: 1.4rem;
+  }
+
+  .image-container {
+    background-size: contain;
+    height: 30rem; 
+    margin-top: 2rem; 
+    width: 100%; 
+  }
+}
+
