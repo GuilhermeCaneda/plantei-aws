@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Plant } from '@Types/Plant';
 import { useNavigate, useParams } from "react-router-dom";
+import { API_URLS } from '@Types/Api';
 
 const Product = () => {
   const { id } = useParams<{ id: string }>();
@@ -15,7 +16,7 @@ const Product = () => {
   useEffect(() => {
     const fetchPlants = async () => {
       try {
-        const response = await axios.get(`http://localhost:3333/plants/${id}`);
+        const response = await axios.get(`${API_URLS.getPlant}${id}`);
         if (id) {
           setPlant(response.data || null);
         } else {
