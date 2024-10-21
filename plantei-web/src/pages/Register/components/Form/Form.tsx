@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import './Form.css';
 import { API_URLS } from '@Types/Api';
+import { baseURL, directories } from '@Types/BucketS3';
 
 const createPlantSchema = z.object({
   name: z.string().nonempty("Name is required"),
@@ -13,7 +14,8 @@ const createPlantSchema = z.object({
   discountPercentage: z.coerce.number().min(0).max(100, "Invalid discount"),
   label: z.string().nonempty("Please select a label"),
   features: z.string().nonempty("Features are required"),
-  description: z.string().nonempty("Description is required")  
+  description: z.string().nonempty("Description is required"),
+  imgPlant: z.string().optional() 
 })
 
 type CreatePlantSchema = z.infer<typeof createPlantSchema>
@@ -23,30 +25,79 @@ export function CreatePlantDialog() {
     resolver: zodResolver(createPlantSchema),
   })
 
-  const [message, setMessage] = useState<{text: string, type: 'success' | 'error' | ''}>({text: '', type: ''});
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [message, setMessage] = useState<{ text: string, type: 'success' | 'error' | '' }>({ text: '', type: '' });
+
+  // Função para transformar o nome da planta em snake_case
+  const transformNameToSnakeCase = (name: string): string => {
+    return name.split(" ").join("_").toLowerCase();
+  };
+
+  // Função para fazer upload da imagem para o S3
+  const uploadImage = async (imageName: string) => {
+    if (!selectedImage) return null;
+
+    const s3Url = `${baseURL}${directories.plantPhotos}${imageName}.png`; 
+
+    try {
+      const response = await fetch(s3Url, {
+        method: "PUT",
+        body: selectedImage,
+        headers: {
+          "Content-Type": selectedImage.type,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          "Erro ao fazer upload da imagem: " + response.statusText
+        );
+      }
+
+      return s3Url;
+    } catch (error) {
+      console.error("Erro ao enviar imagem:", error);
+      return null;
+    }
+  };
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedImage(file);
+    }
+  };
 
   async function handleCreatePlant(data: CreatePlantSchema) {
     try {
+      const plantNameInSnakeCase = transformNameToSnakeCase(data.name);
+      const plantDataWithImage = { ...data, imgPlant: `${plantNameInSnakeCase}.png` };
+
       const response = await fetch(API_URLS.setPlant, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(plantDataWithImage),
       });
 
       if (response.ok) {
         setMessage({ text: 'Planta registrada com sucesso!', type: 'success' });
-        console.log("Pronto")
+
+        const imageUrl = await uploadImage(plantNameInSnakeCase);
+        
+        if (!imageUrl) {
+          setMessage({ text: 'Erro ao fazer upload da imagem.', type: 'error' });
+          return;
+        }
       } else {
         setMessage({ text: 'Erro ao registrar planta.', type: 'error' });
-        console.log("Erro")
       }
     } catch (error) {
+      console.log(error)
       setMessage({ text: 'Erro ao enviar requisição.', type: 'error' });
-      console.log("Requisição")
     }
   }
+
 
   return (
     <div className="container">
@@ -62,7 +113,7 @@ export function CreatePlantDialog() {
               type="text"
               className="plant-form-input"
               placeholder="Echinocereus Cactus"
-              {...register('name')} 
+              {...register('name')}
             />
             {errors.name && <p className="error-message">{errors.name.message}</p>}
           </div>
@@ -73,7 +124,7 @@ export function CreatePlantDialog() {
               type="text"
               className="plant-form-input"
               placeholder="A majestic addition to your plant collection"
-              {...register('subtitle')} 
+              {...register('subtitle')}
             />
             {errors.subtitle && <p className="error-message">{errors.subtitle.message}</p>}
           </div>
@@ -89,6 +140,15 @@ export function CreatePlantDialog() {
             {errors.type && <p className="error-message">{errors.type.message}</p>}
           </div>
 
+          <div style={{ padding: "20px 0" }}>
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </div>
+
           <div className="plant-form-row">
             <div className={`form-group ${errors.price ? 'error' : ''}`}>
               <label htmlFor="price">Price</label>
@@ -96,7 +156,7 @@ export function CreatePlantDialog() {
                 type="text"
                 className="plant-form-input"
                 placeholder="$139.99"
-                {...register('price')} 
+                {...register('price')}
               />
               {errors.price && <p className="error-message">{errors.price.message}</p>}
             </div>
@@ -107,7 +167,7 @@ export function CreatePlantDialog() {
                 type="text"
                 className="plant-form-input"
                 placeholder="20%"
-                {...register('discountPercentage')} 
+                {...register('discountPercentage')}
               />
               {errors.discountPercentage && <p className="error-message">{errors.discountPercentage.message}</p>}
             </div>
@@ -120,7 +180,7 @@ export function CreatePlantDialog() {
               id="indoor"
               value="Indoor"
               defaultChecked
-              {...register('label')} 
+              {...register('label')}
             />
             <label htmlFor="indoor">Indoor</label>
 
@@ -148,7 +208,7 @@ export function CreatePlantDialog() {
             <textarea
               className="plant-form-textarea"
               placeholder="Ladyfinger cactus..."
-              {...register('description')} 
+              {...register('description')}
             />
             {errors.description && <p className="error-message">{errors.description.message}</p>}
           </div>
@@ -164,8 +224,7 @@ export function CreatePlantDialog() {
           )}
         </form>
       </div>
-      <div className="image-container"/>
-      
+      <div className="image-container" />
     </div>
   );
 }

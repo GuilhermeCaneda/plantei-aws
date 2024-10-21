@@ -35,6 +35,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           }}
         >
           {props.plants.map((item, index) => (
+            
             <SplideSlide key={index}>
               <HomeCard 
                 key={item._id}
@@ -44,6 +45,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                 discount={item.discountPercentage}
                 label={item.label} 
                 type={item.type} 
+                imgPlant={item.imgPlant}
               />
             </SplideSlide>
           ))}

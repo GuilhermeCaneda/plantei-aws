@@ -16,6 +16,7 @@ const Home = () => {
         setStatus('Loading...');
         const response = await axios.get(API_URLS.getPlants);
         setPlants(response.data);
+        console.log(plants)
       } catch (err) {
         setStatus("We couldn't find the data at this time. Please try again later.")
         console.log(err)
@@ -24,7 +25,7 @@ const Home = () => {
 
     fetchPlants();
   }, []);
-
+  
   return (
     <div className="home-container">
         <SectionGreenSide/>
