@@ -50,6 +50,7 @@ const Products = () => {
                         discount={item.discountPercentage}
                         label={item.label} 
                         type={item.type} 
+                        imgPlant={item.imgPlant}
                     />
                 ))
             ) : <p>{status}</p>}
